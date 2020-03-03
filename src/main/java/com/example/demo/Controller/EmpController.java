@@ -13,13 +13,13 @@ public class EmpController {
 	@Autowired
 	private EmpService empService;
 	
-	//@PreAuthorize("hasAnyRole('ADMIN')")
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@RequestMapping("/get")
 	public String fetchMessage() {
 		System.out.println("you are fetching data in application using fetchMessage() method....");
 		return empService.getMessage();
 	}
-	
+	@PreAuthorize("hasAnyRole('USER')")
 	@RequestMapping("/user")
 	public String user()
 	{
